@@ -1,0 +1,18 @@
+from js import robot
+
+
+
+while robot.is_ok():
+  max_pixel = 0
+  index = -1
+  pixels = robot.camera_pixels()
+  for i in range(0, len(pixels)):
+    if pixels[i] > max_pixel:
+      max_pixel = pixels[i]
+      index = i
+
+  merkez = len(pixels)/2
+  hata = merkez - index
+  artma = 18
+  robot.rotate(hata * artma)
+  robot.move(1)
