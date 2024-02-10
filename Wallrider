@@ -1,0 +1,26 @@
+from js import robot
+
+
+
+while robot.is_ok():
+    on = abs(robot.front_sensor())
+    sag = abs(robot.right_sensor())
+    sol = abs(robot.left_sensor())
+    sag_on = abs(robot.front_right_sensor())
+    sol_on = abs(robot.front_left_sensor())
+
+    robot.move(10)
+    #robot.move(16 - min(8, on))
+
+    on_fark = (sag_on - sol_on)
+    if on_fark > 0.2:
+        robot.rotate(-1)
+    elif on_fark < -0.2:
+        robot.rotate(1)
+
+
+#    if sag_on < sol_on:
+#        robot.rotate(2)
+#    elif sag_on > sol_on:
+#        robot.rotate(-2)
+        
