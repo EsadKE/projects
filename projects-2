@@ -1,0 +1,31 @@
+from js import robot
+
+sira = "on"
+
+while robot.is_ok():
+
+    print ("en büyük = " + sira)
+
+
+    on_f = (robot.front())
+    sag_f = (robot.right())
+    sol_f = (robot.left())
+
+    if sag_f >= on_f & sag_f >= sol_f:
+        sira = "sag"
+    elif on_f >= sag_f & on_f >= sol_f:
+        sira = "on"
+    elif sol_f >= on_f & sol_f >= sag_f:
+        sira = "sol"
+
+
+
+
+    if (sira == "on"):
+        robot.move_forward()
+    elif (sira == "sag"):
+        robot.turn_right()
+        robot.move_forward()
+    elif (sira == "sol"):
+        robot.turn_left()
+        robot.move_forward()
